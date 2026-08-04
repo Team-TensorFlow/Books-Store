@@ -1,17 +1,17 @@
-# 📚 Books Store Web Application
+# Books Store Web Application
 
 A full-featured Express.js web application equipped with automated continuous integration (CI) and continuous deployment (CD) via GitHub Actions, containerized using Docker, and hosted live on an Ubuntu VPS.
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
 * **Live Web Application:** [http://103.191.241.109](http://103.191.241.109)
 * **Server Port:** `80` (HTTP) mapped internally to container port `3000`
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Backend:** Node.js (v22), Express.js
 * **Containerization:** Docker
@@ -22,7 +22,7 @@ A full-featured Express.js web application equipped with automated continuous in
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 Books-Store/
