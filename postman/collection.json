@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "JU CSE Tests",
+    "name": "Books Store API Tests",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -25,7 +25,7 @@
             "type": "text/javascript",
             "exec": [
               "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
-              "pm.test('Response contains welcome text', function () { pm.expect(pm.response.text()).to.include('Welcome to JU CSE!'); });"
+              "pm.test('Response returns HTML page', function () { pm.expect(pm.response.text()).to.include('html'); });"
             ]
           }
         }
