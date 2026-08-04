@@ -3,29 +3,50 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  test-and-deploy:
+  # -------------------------------------------------------------
+  # JOB 1: Continuous Integration (Test App)
+  # -------------------------------------------------------------
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm'
 
-      - name: Install Dependencies
+      - name: Install Node Dependencies
         run: npm ci
 
       - name: Run Newman API Tests
         run: |
+          # 1. Start Express app in background
           node app.js &
+          
+          # 2. Wait 3 seconds for server to bind to port 3000
+          sleep 3
+          
+          # 3. Install and run Newman CLI tests
           npm install -g newman
           newman run postman/collection.json
 
+  # -------------------------------------------------------------
+  # JOB 2: Continuous Deployment (Deploy to VPS)
+  # -------------------------------------------------------------
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Deploy to VPS over SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -33,7 +54,7 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            # Clone repo if it doesn't exist on server, or pull latest changes
+            # 1. Clone repository if missing, or pull latest changes
             if [ ! -d "web-ii-team-project" ]; then
               git clone https://github.com/Abdullah-Al-Faheem/web-ii-team-project.git
             fi
@@ -41,8 +62,13 @@ jobs:
             cd web-ii-team-project
             git pull origin main
 
-            # Rebuild image and restart container on Port 80
+            # 2. Rebuild Docker Image
             docker build -t ju-cse-app .
+
+            # 3. Restart container on Port 80
             docker stop ju-cse-container || true
             docker rm ju-cse-container || true
             docker run -d -p 80:3000 --restart always --name ju-cse-container ju-cse-app
+
+            # 4. Clean up dangling images to free VPS disk space
+            docker image prune -f
