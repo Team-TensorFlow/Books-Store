@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
             font-size:60px;
             font-family:Arial;
         ">
-            Welcome to JU CSE!
+            Hello, Welcome to JU CSE!
         </body>
         </html>
     `);
