@@ -1,30 +1,48 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
-  build:
-
+  test-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: '22'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run Application
-        run: node app.js
+      - name: Run Newman API Tests
+        run: |
+          node app.js &
+          npm install -g newman
+          newman run postman/collection.json
 
-      - name: Build Docker Image
-        run: docker build -t web-ii-project .
+      - name: Deploy to VPS over SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            # Clone repo if it doesn't exist on server, or pull latest changes
+            if [ ! -d "web-ii-team-project" ]; then
+              git clone https://github.com/Abdullah-Al-Faheem/web-ii-team-project.git
+            fi
+            
+            cd web-ii-team-project
+            git pull origin main
+
+            # Rebuild image and restart container on Port 80
+            docker build -t ju-cse-app .
+            docker stop ju-cse-container || true
+            docker rm ju-cse-container || true
+            docker run -d -p 80:3000 --restart always --name ju-cse-container ju-cse-app
