@@ -34,28 +34,32 @@ jobs:
           # Use npx to execute Newman cleanly
           npx newman run postman/collection.json
 
+
+
   deploy:
-    needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
+      needs: test
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      runs-on: ubuntu-latest
 
-    steps:
-      - name: Deploy to VPS over SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            if [ ! -d "web-ii-team-project" ]; then
-              git clone https://github.com/Abdullah-Al-Faheem/web-ii-team-project.git
-            fi
-            
-            cd web-ii-team-project
-            git pull origin main
+      steps:
+        - name: Deploy to VPS over SSH
+          uses: appleboy/ssh-action@v1.0.3
+          with:
+            host: ${{ secrets.VPS_HOST }}
+            username: ${{ secrets.VPS_USERNAME }}
+            key: ${{ secrets.VPS_SSH_KEY }}
+            script: |
+              # Clone repo if missing, or pull latest changes
+              if [ ! -d "Books-Store" ]; then
+                git clone https://github.com/Team-TensorFlow/Books-Store.git
+              fi
+              
+              cd Books-Store
+              git pull origin main
 
-            docker build -t ju-cse-app .
-            docker stop ju-cse-container || true
-            docker rm ju-cse-container || true
-            docker run -d -p 80:3000 --restart always --name ju-cse-container ju-cse-app
-            docker image prune -f
+              # Rebuild image and restart container on Port 80
+              docker build -t ju-cse-app .
+              docker stop ju-cse-container || true
+              docker rm ju-cse-container || true
+              docker run -d -p 80:3000 --restart always --name ju-cse-container ju-cse-app
+              docker image prune -f
