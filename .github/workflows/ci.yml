@@ -7,9 +7,6 @@ on:
     branches: [ "main" ]
 
 jobs:
-  # -------------------------------------------------------------
-  # JOB 1: Continuous Integration (Test App)
-  # -------------------------------------------------------------
   test:
     runs-on: ubuntu-latest
 
@@ -28,19 +25,15 @@ jobs:
 
       - name: Run Newman API Tests
         run: |
-          # 1. Start Express app in background
+          # Start Express app in background
           node app.js &
           
-          # 2. Wait 3 seconds for server to bind to port 3000
+          # Wait 3 seconds for Express to boot
           sleep 3
           
-          # 3. Install and run Newman CLI tests
-          npm install -g newman
-          newman run postman/collection.json
+          # Use npx to execute Newman cleanly
+          npx newman run postman/collection.json
 
-  # -------------------------------------------------------------
-  # JOB 2: Continuous Deployment (Deploy to VPS)
-  # -------------------------------------------------------------
   deploy:
     needs: test
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -54,7 +47,6 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            # 1. Clone repository if missing, or pull latest changes
             if [ ! -d "web-ii-team-project" ]; then
               git clone https://github.com/Abdullah-Al-Faheem/web-ii-team-project.git
             fi
@@ -62,13 +54,8 @@ jobs:
             cd web-ii-team-project
             git pull origin main
 
-            # 2. Rebuild Docker Image
             docker build -t ju-cse-app .
-
-            # 3. Restart container on Port 80
             docker stop ju-cse-container || true
             docker rm ju-cse-container || true
             docker run -d -p 80:3000 --restart always --name ju-cse-container ju-cse-app
-
-            # 4. Clean up dangling images to free VPS disk space
             docker image prune -f
