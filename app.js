@@ -4,36 +4,21 @@ const app = express();
 
 app.get("/", (req, res) => {
     res.send(`
-        <!DOCTYPE html>
         <html>
-        <head>
-            <title>JU CSE</title>
-            <style>
-                body {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vh;
-                    font-family: Arial, sans-serif;
-                    background-color: #f2f2f2;
-                }
+        <body style="
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            font-size:60px;
+            font-family:Arial;
+        ">
 
-                h1 {
-                    font-size: 60px;
-                    color: #0066cc;
-                }
-
-                p {
-                    font-size: 25px;
-                    color: #333;
-                }
-            </style>
-        </head>
-
-        <body>
-            <h1>Welcome to JU CSE!!!</h1>
-            <p><b>Developer: Naeem, Mahadi, Limon, Fahim</b></p>
+        <b>Welcome to ju cse!!!</b>
+        <br>
+        <b>TEAM 12</b>
+        <b>new one</b>
+       <b> Developer:Naeem,Mahadi,Limon,Fahim</b>
         </body>
         </html>
     `);
