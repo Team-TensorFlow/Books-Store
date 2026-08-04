@@ -16,8 +16,7 @@ app.get("/", (req, res) => {
 
         <b>Welcome to ju cse!!!</b>
         <br>
-        <b>TEAM 12</b>
-        <b>new one</b>
+        
        <b> Developer:Naeem,Mahadi,Limon,Fahim</b>
         </body>
         </html>
