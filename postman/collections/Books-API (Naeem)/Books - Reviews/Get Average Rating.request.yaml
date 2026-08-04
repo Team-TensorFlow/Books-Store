@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/books/1/rating"
+method: GET
+order: 4000

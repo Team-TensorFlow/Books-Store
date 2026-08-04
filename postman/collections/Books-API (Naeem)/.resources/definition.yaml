@@ -1,0 +1,4 @@
+$kind: collection
+description: 50 endpoints for Books, Categories, Authors module - Books-Store project
+variables:
+  base_url: http://103.191.241.109

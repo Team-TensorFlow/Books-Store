@@ -1,0 +1,4 @@
+name: Books-Store Server
+values:
+  - key: base_url
+    value: ''

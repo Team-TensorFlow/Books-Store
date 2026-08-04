@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{base_url}}/api/authors"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Humayun Ahmed",
+      "bio": "Famous Bangladeshi novelist"
+    }
+order: 3000

@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/authors/1/bio"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "bio": "Updated biography text"
+    }
+order: 10000

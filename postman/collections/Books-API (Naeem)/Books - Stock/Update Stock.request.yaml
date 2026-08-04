@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/books/1/stock"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "stock": 25
+    }
+order: 1000
