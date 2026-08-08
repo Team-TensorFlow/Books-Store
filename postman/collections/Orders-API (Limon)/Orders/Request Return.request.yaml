@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{base_url}}/api/orders/1/return"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "reason": "Damaged item",
+      "order_item_id": 1
+    }
+order: 12000

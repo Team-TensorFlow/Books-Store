@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/users/me/2fa/enable"
+method: PATCH
+order: 5000

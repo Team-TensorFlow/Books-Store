@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/wishlist/sort?by=price"
+method: GET
+queryParams:
+  by: price
+order: 22000

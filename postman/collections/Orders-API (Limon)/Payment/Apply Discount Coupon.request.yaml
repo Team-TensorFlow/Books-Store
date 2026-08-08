@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/coupon/apply"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "code": "SAVE10"
+    }
+order: 18000

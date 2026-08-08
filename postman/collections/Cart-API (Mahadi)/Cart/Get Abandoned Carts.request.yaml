@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/cart/abandoned"
+method: GET
+order: 17000

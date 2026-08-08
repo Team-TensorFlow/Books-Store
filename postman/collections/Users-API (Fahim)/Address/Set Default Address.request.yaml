@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/users/me/addresses/1/default"
+method: PATCH
+order: 6000

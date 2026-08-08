@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/orders/1/return/approve"
+method: PATCH
+order: 14000

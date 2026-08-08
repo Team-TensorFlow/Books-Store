@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/verify"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "transaction_id": "TXN123456"
+    }
+order: 2000

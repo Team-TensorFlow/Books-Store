@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/users/me/addresses/default"
+method: GET
+order: 7000

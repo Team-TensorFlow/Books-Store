@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/wishlist/shared/abc123"
+method: GET
+order: 9000

@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{base_url}}/api/users/sort?by=created_at&order=desc"
+method: GET
+queryParams:
+  by: created_at
+  order: desc
+order: 9000

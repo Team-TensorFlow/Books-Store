@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/cart/1/move-to-wishlist"
+method: POST
+order: 14000

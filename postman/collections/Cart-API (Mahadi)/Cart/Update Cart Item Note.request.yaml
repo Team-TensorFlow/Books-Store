@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/cart/1/note"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "note": "Gift wrap please"
+    }
+order: 16000

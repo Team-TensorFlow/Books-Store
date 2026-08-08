@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/wishlist/sort?by=created_at"
+method: GET
+queryParams:
+  by: created_at
+order: 21000

@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/cart/coupon"
+method: DELETE
+order: 9000

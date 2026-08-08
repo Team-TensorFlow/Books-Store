@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{base_url}}/api/users/me/addresses/1"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "label": "Home",
+      "street": "Road 5, House 12",
+      "city": "Dhaka",
+      "postCode": "1207"
+    }
+order: 4000

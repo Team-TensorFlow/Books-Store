@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/users/search?email=fahim@example.com"
+method: GET
+queryParams:
+  email: fahim@example.com
+order: 9000

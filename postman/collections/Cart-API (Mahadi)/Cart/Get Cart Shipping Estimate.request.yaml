@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/cart/shipping-estimate"
+method: GET
+order: 22000
