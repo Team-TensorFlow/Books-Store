@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/cart/save"
+method: POST
+order: 12000

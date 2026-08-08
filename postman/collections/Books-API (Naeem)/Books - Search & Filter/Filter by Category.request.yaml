@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/books/filter/category?category=Fiction"
+method: GET
+queryParams:
+  category: Fiction
+order: 3000

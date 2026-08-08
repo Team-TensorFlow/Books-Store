@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{base_url}}/api/books"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Test Book",
+      "author_id": 1,
+      "category_id": 1,
+      "price": 300,
+      "stock": 10
+    }
+order: 3000

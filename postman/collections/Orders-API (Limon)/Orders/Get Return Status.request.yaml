@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/orders/1/return/status"
+method: GET
+order: 13000

@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{base_url}}/api/wishlist/1/notify-off"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "{}"
+order: 20000

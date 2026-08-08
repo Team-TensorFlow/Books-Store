@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/wishlist/total-value"
+method: GET
+order: 24000

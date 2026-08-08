@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/tax?amount=500"
+method: GET
+queryParams:
+  amount: "500"
+order: 23000

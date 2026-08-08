@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/users/me/avatar"
+method: POST
+order: 4000

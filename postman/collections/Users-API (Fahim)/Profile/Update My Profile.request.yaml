@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{base_url}}/api/users/me"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Fahim Ahmed",
+      "phone": "01700000000"
+    }
+order: 2000

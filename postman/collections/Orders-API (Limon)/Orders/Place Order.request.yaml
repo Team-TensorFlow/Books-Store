@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{base_url}}/api/orders"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "address_id": 1,
+      "payment_method": "cod",
+      "items": [
+        {
+          "book_id": 1,
+          "quantity": 2
+        }
+      ]
+    }
+order: 1000

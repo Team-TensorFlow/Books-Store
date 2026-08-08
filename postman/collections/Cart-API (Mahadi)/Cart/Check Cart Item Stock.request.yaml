@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/cart/1/stock-check"
+method: GET
+order: 10000

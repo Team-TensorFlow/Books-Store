@@ -1,0 +1,12 @@
+owner: "57073124"
+team: "31080249"
+lastUpdatedBy: "57073124"
+lastRevision: 1785951519000
+name: Books-Store Server
+color: null
+values:
+  - key: base_url
+    value: ""
+    enabled: true
+createdAt: 2026-08-05T17:31:50.000Z
+updatedAt: 2026-08-05T17:38:39.000Z

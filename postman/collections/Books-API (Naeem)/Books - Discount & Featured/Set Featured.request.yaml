@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/books/1/featured"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "is_featured": true
+    }
+order: 5000

@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/books/out-of-stock"
+method: GET
+order: 3000

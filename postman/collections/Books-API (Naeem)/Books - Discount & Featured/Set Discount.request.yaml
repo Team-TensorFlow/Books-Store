@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/books/1/discount"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "discount_percent": 15
+    }
+order: 1000

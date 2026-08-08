@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/cart/1/duplicate"
+method: POST
+order: 25000

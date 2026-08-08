@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{base_url}}/api/books/1/review"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "reviewer_name": "Naeem",
+      "rating": 5,
+      "comment": "Great book!"
+    }
+order: 1000

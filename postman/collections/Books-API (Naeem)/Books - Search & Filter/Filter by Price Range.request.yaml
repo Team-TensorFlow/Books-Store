@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{base_url}}/api/books/filter/price?minPrice=100&maxPrice=500"
+method: GET
+queryParams:
+  minPrice: "100"
+  maxPrice: "500"
+order: 4000

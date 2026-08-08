@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/wishlist/filter?category=Fiction"
+method: GET
+queryParams:
+  category: Fiction
+order: 23000

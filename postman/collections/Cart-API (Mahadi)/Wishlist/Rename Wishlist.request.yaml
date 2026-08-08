@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/wishlist/named/1"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Birthday Wishlist"
+    }
+order: 15000

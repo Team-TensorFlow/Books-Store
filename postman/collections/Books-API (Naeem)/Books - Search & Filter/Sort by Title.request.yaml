@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/books/sort/title?order=asc"
+method: GET
+queryParams:
+  order: asc
+order: 7000

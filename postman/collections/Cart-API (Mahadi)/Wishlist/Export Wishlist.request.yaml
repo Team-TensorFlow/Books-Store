@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/wishlist/export"
+method: GET
+order: 25000

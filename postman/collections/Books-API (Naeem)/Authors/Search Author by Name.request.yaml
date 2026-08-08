@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/authors/search?name=humayun"
+method: GET
+queryParams:
+  name: humayun
+order: 7000

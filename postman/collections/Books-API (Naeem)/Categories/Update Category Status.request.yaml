@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/categories/1/status"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "status": "active"
+    }
+order: 8000

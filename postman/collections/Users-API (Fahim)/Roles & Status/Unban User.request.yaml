@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/users/1/unban"
+method: PATCH
+order: 6000

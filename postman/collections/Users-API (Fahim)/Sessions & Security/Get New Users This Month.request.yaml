@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/users/new-this-month"
+method: GET
+order: 10000
