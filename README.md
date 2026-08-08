@@ -28,10 +28,12 @@ A full-featured Express.js web application equipped with automated continuous in
 Books-Store/
 ├── .github/
 │   └── workflows/
-│       └── ci.yml             # GitHub Actions CI/CD Pipeline
+│       └── ci.yml                                       # GitHub Actions CI/CD Pipeline
 ├── postman/
-│   └── collection.json        # Postman test collection for automated API testing
-├── app.js                     # Main Express.js server application
-├── Dockerfile                 # Docker build configuration
-├── package.json               # Node.js dependencies and scripts
-└── README.md                  # Project documentation
+│   ├── collection.json                                  # Postman test collection
+│   └── environments/
+│       └── Books-Store Server.postman_environment.json  # Environment variables for Newman
+├── app.js                                               # Main Express.js server application
+├── Dockerfile                                           # Docker build configuration
+├── package.json                                         # Node.js dependencies and scripts
+└── README.md                                            # Project documentation
