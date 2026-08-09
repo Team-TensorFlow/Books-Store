@@ -1,9 +1,0 @@
-$kind: http-request
-body:
-  content: '{}'
-  type: json
-headers:
-  Content-Type: application/json
-method: PATCH
-order: 36000
-url: '{{base_url}}/posts/1'

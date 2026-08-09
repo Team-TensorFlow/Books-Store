@@ -2,12 +2,479 @@
   "info": {
     "_postman_id": "621db0be-c89c-4c53-ae80-23cd12d7fe3d",
     "name": "Users-API (Fahim)",
-    "description": "50 endpoints - Users-API (Fahim) module for Books-Store project testing JSONPlaceholder Fake API",
+    "description": "50 endpoints organized by HTTP Method (GET, POST, PUT, PATCH, DELETE) for Users-API (Fahim) module testing JSONPlaceholder Fake API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "Auth",
+      "name": "GET",
+      "item": [
+        {
+          "name": "Get My Profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get My Profile - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get User by ID - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get All Users - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Search Users by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users?username=Bret"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Search Users by Name - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Search Users by Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users?email=Sincere@april.biz"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Search Users by Email - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get User Count",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get User Count - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Users by Role",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Users by Role - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Active Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Active Users - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Inactive Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Inactive Users - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Banned Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Banned Users - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Admin Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Admin Users - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get My Addresses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/posts?userId=1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get My Addresses - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Address by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/posts/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Address by ID - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Default Address",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/posts/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Default Address - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Filter Addresses by City",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/posts?userId=1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Filter Addresses by City - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Address Count",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/posts?userId=1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Address Count - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Active Sessions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users/1/todos"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Active Sessions - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Login History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users/1/todos"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get Login History - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Paginate Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Paginate Users - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Sort Users by Join Date",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Sort Users by Join Date - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get New Users This Month",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/users"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Get New Users This Month - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "POST",
       "item": [
         {
           "name": "Register",
@@ -298,42 +765,6 @@
           "response": []
         },
         {
-          "name": "Change Password",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": "{{base_url}}/users/1",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"oldPassword\": \"secret123\",\n  \"newPassword\": \"newSecret456\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Change Password - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
           "name": "Verify OTP",
           "request": {
             "method": "POST",
@@ -361,91 +792,6 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Verify OTP - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Profile",
-      "item": [
-        {
-          "name": "Get My Profile",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users/1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get My Profile - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Update My Profile",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": "{{base_url}}/users/1",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Fahim Ahmed\",\n  \"phone\": \"01700000000\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Update My Profile - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Delete My Account",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{base_url}}/users/1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Delete My Account - Status code is 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
                   "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
                 ]
@@ -491,11 +837,25 @@
           "response": []
         },
         {
-          "name": "Remove Profile Picture",
+          "name": "Add Address",
           "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{base_url}}/posts/1"
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/posts",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"label\": \"Home\",\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "event": [
             {
@@ -503,7 +863,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Remove Profile Picture - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Add Address - Status code is 201', function () { pm.response.to.have.status(201); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
                   "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
                 ]
@@ -513,11 +873,25 @@
           "response": []
         },
         {
-          "name": "Get User by ID",
+          "name": "Validate Address",
           "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users/1"
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/posts",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "event": [
             {
@@ -525,7 +899,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get User by ID - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Validate Address - Status code is 201', function () { pm.response.to.have.status(201); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
                   "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
                 ]
@@ -535,33 +909,25 @@
           "response": []
         },
         {
-          "name": "Get All Users",
+          "name": "Verify Two-Factor Code",
           "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get All Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/todos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
               }
             }
-          ],
-          "response": []
-        },
-        {
-          "name": "Search Users by Name",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users?username=Bret"
           },
           "event": [
             {
@@ -569,53 +935,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Search Users by Name - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Verify Two-Factor Code - Status code is 201', function () { pm.response.to.have.status(201); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Search Users by Email",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users?email=Sincere@april.biz"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Search Users by Email - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get User Count",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get User Count - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
                 ]
               }
             }
@@ -625,8 +947,121 @@
       ]
     },
     {
-      "name": "Roles & Status",
+      "name": "PUT",
       "item": [
+        {
+          "name": "Update My Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/users/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Fahim Ahmed\",\n  \"phone\": \"01700000000\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Update My Profile - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Update Address",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/posts/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"label\": \"Home\",\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Update Address - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PATCH",
+      "item": [
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/users/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"oldPassword\": \"secret123\",\n  \"newPassword\": \"newSecret456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Change Password - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
         {
           "name": "Update User Role",
           "request": {
@@ -657,28 +1092,6 @@
                   "pm.test('Update User Role - Status code is 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
                   "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get Users by Role",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Users by Role - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
                 ]
               }
             }
@@ -830,237 +1243,6 @@
           "response": []
         },
         {
-          "name": "Get Active Users",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Active Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get Inactive Users",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Inactive Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get Banned Users",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Banned Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get Admin Users",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Admin Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Address",
-      "item": [
-        {
-          "name": "Add Address",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": "{{base_url}}/posts",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"label\": \"Home\",\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Add Address - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get My Addresses",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/posts?userId=1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get My Addresses - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get Address by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/posts/1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Address by ID - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Update Address",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": "{{base_url}}/posts/1",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"label\": \"Home\",\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Update Address - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Delete Address",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{base_url}}/posts/1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Delete Address - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
           "name": "Set Default Address",
           "request": {
             "method": "PATCH",
@@ -1090,201 +1272,6 @@
                   "pm.test('Set Default Address - Status code is 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
                   "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get Default Address",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/posts/1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Default Address - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Filter Addresses by City",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/posts?userId=1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Filter Addresses by City - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get Address Count",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/posts?userId=1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Address Count - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Validate Address",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": "{{base_url}}/posts",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Validate Address - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Sessions & Security",
-      "item": [
-        {
-          "name": "Get Active Sessions",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users/1/todos"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Active Sessions - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Logout from Device",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{base_url}}/todos/1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Logout from Device - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Logout All Devices",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{base_url}}/todos/1"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Logout All Devices - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
-                ]
-              }
-            }
-          ],
-          "response": []
-        },
-        {
-          "name": "Get Login History",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/users/1/todos"
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('Get Login History - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
                 ]
               }
             }
@@ -1362,27 +1349,18 @@
             }
           ],
           "response": []
-        },
+        }
+      ]
+    },
+    {
+      "name": "DELETE",
+      "item": [
         {
-          "name": "Verify Two-Factor Code",
+          "name": "Delete My Account",
           "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": "{{base_url}}/todos",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"code\": \"123456\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/users/1"
           },
           "event": [
             {
@@ -1390,7 +1368,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Verify Two-Factor Code - Status code is 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('Delete My Account - Status code is 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
                   "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
                 ]
@@ -1400,11 +1378,11 @@
           "response": []
         },
         {
-          "name": "Paginate Users",
+          "name": "Remove Profile Picture",
           "request": {
-            "method": "GET",
+            "method": "DELETE",
             "header": [],
-            "url": "{{base_url}}/users"
+            "url": "{{base_url}}/posts/1"
           },
           "event": [
             {
@@ -1412,9 +1390,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Paginate Users - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Remove Profile Picture - Status code is 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
                 ]
               }
             }
@@ -1422,11 +1400,11 @@
           "response": []
         },
         {
-          "name": "Sort Users by Join Date",
+          "name": "Delete Address",
           "request": {
-            "method": "GET",
+            "method": "DELETE",
             "header": [],
-            "url": "{{base_url}}/users"
+            "url": "{{base_url}}/posts/1"
           },
           "event": [
             {
@@ -1434,9 +1412,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Sort Users by Join Date - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Delete Address - Status code is 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
                 ]
               }
             }
@@ -1444,11 +1422,11 @@
           "response": []
         },
         {
-          "name": "Get New Users This Month",
+          "name": "Logout from Device",
           "request": {
-            "method": "GET",
+            "method": "DELETE",
             "header": [],
-            "url": "{{base_url}}/users"
+            "url": "{{base_url}}/todos/1"
           },
           "event": [
             {
@@ -1456,9 +1434,31 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get New Users This Month - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Logout from Device - Status code is 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Logout All Devices",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/todos/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Logout All Devices - Status code is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
+                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
                 ]
               }
             }

@@ -1,0 +1,9 @@
+$kind: http-request
+body:
+  content: "{\n  \"email\": \"fahim@example.com\",\n  \"otp\": \"123456\"\n}"
+  type: json
+headers:
+  Content-Type: application/json
+method: POST
+order: 30000
+url: '{{base_url}}/users'

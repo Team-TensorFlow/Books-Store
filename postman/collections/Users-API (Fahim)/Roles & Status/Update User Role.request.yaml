@@ -1,9 +1,0 @@
-$kind: http-request
-body:
-  content: "{\n  \"role\": \"admin\"\n}"
-  type: json
-headers:
-  Content-Type: application/json
-method: PATCH
-order: 21000
-url: '{{base_url}}/users/1'

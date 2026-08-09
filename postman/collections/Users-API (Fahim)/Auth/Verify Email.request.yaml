@@ -1,9 +1,0 @@
-$kind: http-request
-body:
-  content: "{\n  \"token\": \"verify-token\"\n}"
-  type: json
-headers:
-  Content-Type: application/json
-method: POST
-order: 5000
-url: '{{base_url}}/users'

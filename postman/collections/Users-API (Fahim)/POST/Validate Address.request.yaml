@@ -1,0 +1,9 @@
+$kind: http-request
+body:
+  content: "{\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\n}"
+  type: json
+headers:
+  Content-Type: application/json
+method: POST
+order: 33000
+url: '{{base_url}}/posts'

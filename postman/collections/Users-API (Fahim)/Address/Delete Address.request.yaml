@@ -1,4 +1,0 @@
-$kind: http-request
-method: DELETE
-order: 35000
-url: '{{base_url}}/posts/1'

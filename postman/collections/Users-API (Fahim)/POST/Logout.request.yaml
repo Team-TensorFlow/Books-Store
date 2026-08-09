@@ -1,0 +1,9 @@
+$kind: http-request
+body:
+  content: '{}'
+  type: json
+headers:
+  Content-Type: application/json
+method: POST
+order: 24000
+url: '{{base_url}}/users'

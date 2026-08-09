@@ -1,0 +1,4 @@
+$kind: http-request
+method: GET
+order: 5000
+url: '{{base_url}}/users?email=Sincere@april.biz'

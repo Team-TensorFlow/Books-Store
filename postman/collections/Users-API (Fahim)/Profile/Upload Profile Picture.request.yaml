@@ -1,9 +1,0 @@
-$kind: http-request
-body:
-  content: "{\n  \"image\": \"avatar.png\"\n}"
-  type: json
-headers:
-  Content-Type: application/json
-method: POST
-order: 14000
-url: '{{base_url}}/posts'

@@ -1,9 +1,0 @@
-$kind: http-request
-body:
-  content: "{\n  \"email\": \"fahim@example.com\"\n}"
-  type: json
-headers:
-  Content-Type: application/json
-method: POST
-order: 6000
-url: '{{base_url}}/users'

@@ -1,0 +1,9 @@
+$kind: http-request
+body:
+  content: "{\n  \"code\": \"123456\"\n}"
+  type: json
+headers:
+  Content-Type: application/json
+method: POST
+order: 34000
+url: '{{base_url}}/todos'

@@ -1,0 +1,9 @@
+$kind: http-request
+body:
+  content: "{\n  \"name\": \"Fahim Ahmed\",\n  \"phone\": \"01700000000\"\n}"
+  type: json
+headers:
+  Content-Type: application/json
+method: PUT
+order: 35000
+url: '{{base_url}}/users/1'
