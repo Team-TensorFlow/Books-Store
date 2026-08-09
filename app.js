@@ -135,8 +135,6 @@ h1{
 
 <div class="container">
 
-<div class="logo">💻</div>
-
 <h1>Welcome to JU CSE</h1>
 
 <p class="subtitle">
@@ -144,14 +142,10 @@ Department of Computer Science & Engineering
 </p>
 
 <div class="team">
-<div class="member">👨‍💻 Naeem</div>
-<div class="member">👨‍💻 Mahadi</div>
-<div class="member">👨‍💻 Limon</div>
-<div class="member">👨‍💻 Fahim</div>
-</div>
-
-<div class="footer">
-Made with ❤️ using Node.js & Express
+<div class="member">Naeem</div>
+<div class="member">Mahadi</div>
+<div class="member">Limon</div>
+<div class="member">Fahim</div>
 </div>
 
 </div>
@@ -162,5 +156,5 @@ Made with ❤️ using Node.js & Express
 });
 
 app.listen(3000, () => {
-    console.log("🚀 Server running at http://localhost:3000");
+    console.log("Server running at http://localhost:3000");
 });
