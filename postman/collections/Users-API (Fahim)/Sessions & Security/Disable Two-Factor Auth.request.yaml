@@ -1,4 +1,9 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/2fa/disable"
+body:
+  content: '{}'
+  type: json
+headers:
+  Content-Type: application/json
 method: PATCH
-order: 6000
+order: 46000
+url: '{{base_url}}/users/1'

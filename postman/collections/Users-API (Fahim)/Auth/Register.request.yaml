@@ -1,14 +1,10 @@
 $kind: http-request
-url: "{{base_url}}/api/auth/register"
-method: POST
+body:
+  content: "{\n  \"name\": \"Fahim Ahmed\",\n  \"email\": \"fahim@example.com\",\n\
+    \  \"password\": \"secret123\"\n}"
+  type: json
 headers:
   Content-Type: application/json
-body:
-  type: json
-  content: |-
-    {
-      "name": "Fahim Ahmed",
-      "email": "fahim@example.com",
-      "password": "secret123"
-    }
+method: POST
 order: 1000
+url: '{{base_url}}/users'

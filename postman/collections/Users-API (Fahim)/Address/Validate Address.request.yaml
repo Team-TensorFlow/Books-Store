@@ -1,15 +1,9 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/addresses/validate"
-method: POST
+body:
+  content: "{\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\n}"
+  type: json
 headers:
   Content-Type: application/json
-body:
-  type: json
-  content: |-
-    {
-      "label": "Home",
-      "street": "Road 5, House 12",
-      "city": "Dhaka",
-      "postCode": "1207"
-    }
-order: 10000
+method: POST
+order: 40000
+url: '{{base_url}}/posts'

@@ -1,4 +1,4 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/addresses/1"
 method: DELETE
-order: 5000
+order: 35000
+url: '{{base_url}}/posts/1'

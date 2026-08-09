@@ -1,4 +1,4 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/login-history"
 method: GET
-order: 4000
+order: 44000
+url: '{{base_url}}/users/1/todos'

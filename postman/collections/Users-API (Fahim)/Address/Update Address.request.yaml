@@ -1,15 +1,10 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/addresses/1"
-method: PUT
+body:
+  content: "{\n  \"label\": \"Home\",\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\
+    \n}"
+  type: json
 headers:
   Content-Type: application/json
-body:
-  type: json
-  content: |-
-    {
-      "label": "Home",
-      "street": "Road 5, House 12",
-      "city": "Dhaka",
-      "postCode": "1207"
-    }
-order: 4000
+method: PUT
+order: 34000
+url: '{{base_url}}/posts/1'

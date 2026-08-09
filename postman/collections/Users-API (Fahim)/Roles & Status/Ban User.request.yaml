@@ -1,4 +1,9 @@
 $kind: http-request
-url: "{{base_url}}/api/users/1/ban"
+body:
+  content: '{}'
+  type: json
+headers:
+  Content-Type: application/json
 method: PATCH
-order: 5000
+order: 25000
+url: '{{base_url}}/users/1'

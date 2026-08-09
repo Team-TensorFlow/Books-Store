@@ -1,4 +1,4 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/addresses/default"
 method: GET
-order: 7000
+order: 37000
+url: '{{base_url}}/posts/1'

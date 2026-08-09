@@ -1,12 +1,9 @@
 $kind: http-request
-url: "{{base_url}}/api/auth/verify-email"
-method: POST
+body:
+  content: "{\n  \"token\": \"verify-token\"\n}"
+  type: json
 headers:
   Content-Type: application/json
-body:
-  type: json
-  content: |-
-    {
-      "token": "verify-token"
-    }
+method: POST
 order: 5000
+url: '{{base_url}}/users'

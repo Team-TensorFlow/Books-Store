@@ -1,12 +1,9 @@
 $kind: http-request
-url: "{{base_url}}/api/auth/resend-verification"
-method: POST
+body:
+  content: "{\n  \"email\": \"fahim@example.com\"\n}"
+  type: json
 headers:
   Content-Type: application/json
-body:
-  type: json
-  content: |-
-    {
-      "email": "fahim@example.com"
-    }
+method: POST
 order: 6000
+url: '{{base_url}}/users'

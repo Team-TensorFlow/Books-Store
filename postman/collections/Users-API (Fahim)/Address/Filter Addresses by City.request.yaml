@@ -1,6 +1,4 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/addresses?city=Dhaka"
 method: GET
-queryParams:
-  city: Dhaka
-order: 8000
+order: 38000
+url: '{{base_url}}/posts?userId=1'

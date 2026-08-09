@@ -25,9 +25,8 @@ jobs:
 
       - name: Run Newman API Tests
         run: |
-          node app.js &
-          sleep 5
-          npx newman run postman/collection.json -e "postman/environments/Books-Store Server.postman_environment.json"
+          npx newman run demo.json
+
 
   deploy:
     needs: test

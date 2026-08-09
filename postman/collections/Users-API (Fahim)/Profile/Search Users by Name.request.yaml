@@ -1,6 +1,4 @@
 $kind: http-request
-url: "{{base_url}}/api/users/search?name=fahim"
 method: GET
-queryParams:
-  name: fahim
-order: 8000
+order: 18000
+url: '{{base_url}}/users?username=Bret'

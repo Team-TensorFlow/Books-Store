@@ -1,4 +1,4 @@
 $kind: http-request
-url: "{{base_url}}/api/users/status/banned"
 method: GET
-order: 9000
+order: 29000
+url: '{{base_url}}/users'

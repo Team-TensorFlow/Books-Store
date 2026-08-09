@@ -1,13 +1,9 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me"
-method: PUT
+body:
+  content: "{\n  \"name\": \"Fahim Ahmed\",\n  \"phone\": \"01700000000\"\n}"
+  type: json
 headers:
   Content-Type: application/json
-body:
-  type: json
-  content: |-
-    {
-      "name": "Fahim Ahmed",
-      "phone": "01700000000"
-    }
-order: 2000
+method: PUT
+order: 12000
+url: '{{base_url}}/users/1'

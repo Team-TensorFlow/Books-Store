@@ -1,4 +1,4 @@
 $kind: http-request
-url: "{{base_url}}/api/users/status/inactive"
 method: GET
-order: 8000
+order: 28000
+url: '{{base_url}}/users'

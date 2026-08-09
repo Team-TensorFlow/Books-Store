@@ -1,4 +1,9 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/avatar"
+body:
+  content: "{\n  \"image\": \"avatar.png\"\n}"
+  type: json
+headers:
+  Content-Type: application/json
 method: POST
-order: 4000
+order: 14000
+url: '{{base_url}}/posts'

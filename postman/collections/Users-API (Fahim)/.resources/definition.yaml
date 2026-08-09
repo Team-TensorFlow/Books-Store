@@ -1,4 +1,5 @@
 $kind: collection
-description: 50 endpoints - Users-API (Fahim) module for Books-Store project
+description: 50 endpoints - Users-API (Fahim) module for Books-Store project testing
+  JSONPlaceholder Fake API
 variables:
-  base_url: http://103.191.241.109
+  base_url: https://jsonplaceholder.typicode.com

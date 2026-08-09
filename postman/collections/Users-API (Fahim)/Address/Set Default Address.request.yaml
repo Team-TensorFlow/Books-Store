@@ -1,4 +1,9 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/addresses/1/default"
+body:
+  content: '{}'
+  type: json
+headers:
+  Content-Type: application/json
 method: PATCH
-order: 6000
+order: 36000
+url: '{{base_url}}/posts/1'

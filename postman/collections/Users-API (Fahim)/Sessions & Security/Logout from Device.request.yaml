@@ -1,4 +1,4 @@
 $kind: http-request
-url: "{{base_url}}/api/users/me/sessions/1"
 method: DELETE
-order: 2000
+order: 42000
+url: '{{base_url}}/todos/1'
