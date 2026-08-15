@@ -37,6 +37,7 @@ Books-Store/
 ├── Dockerfile                                           # Docker build configuration
 ├── package.json                                         # Node.js dependencies and scripts
 └── README.md                                            # Project documentation
+```
 
 ---
 
