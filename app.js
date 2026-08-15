@@ -155,9 +155,6 @@ h1{
 
 <h1>Welcome to JU CSE Books Store</h1>
 
-<p class="subtitle">
-Department of Computer Science & Engineering - Lab 03 CRUD API
-</p>
 
 <a href="/api/books" class="api-link">View Books API (/api/books)</a>
 
