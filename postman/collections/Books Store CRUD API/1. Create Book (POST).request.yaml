@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://localhost:3000/api/books
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "price": 29.99,
+      "genre": "Software Engineering",
+      "published_year": 2008
+    }
+order: 1000

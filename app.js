@@ -1,7 +1,21 @@
 const express = require("express");
+const { initDB } = require("./config/db");
+const bookRoutes = require("./routes/bookRoutes");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Body parser middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Initialize database schema
+initDB();
+
+// API Routes
+app.use("/api/books", bookRoutes);
+
+// Landing page route
 app.get("/", (req, res) => {
   res.send(`
 <!DOCTYPE html>
@@ -9,7 +23,7 @@ app.get("/", (req, res) => {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JU CSE</title>
+<title>JU CSE - Books Store API</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -30,7 +44,6 @@ body{
     overflow:hidden;
 }
 
-/* Animated background */
 body::before{
     content:'';
     position:absolute;
@@ -74,20 +87,32 @@ body::after{
     animation:fadeIn 1s ease;
 }
 
-.logo{
-    font-size:70px;
+h1{
+    font-size:42px;
     margin-bottom:10px;
 }
 
-h1{
-    font-size:48px;
-    margin-bottom:15px;
+.subtitle{
+    font-size:20px;
+    color:#dbeafe;
+    margin-bottom:25px;
 }
 
-.subtitle{
-    font-size:22px;
-    color:#dbeafe;
-    margin-bottom:35px;
+.api-link {
+    display:inline-block;
+    padding:12px 25px;
+    background:#3b82f6;
+    color:white;
+    text-decoration:none;
+    border-radius:20px;
+    font-weight:600;
+    margin-bottom:30px;
+    transition: 0.3s;
+}
+
+.api-link:hover {
+    background:#2563eb;
+    transform:translateY(-3px);
 }
 
 .team{
@@ -98,7 +123,7 @@ h1{
 }
 
 .member{
-    padding:12px 24px;
+    padding:10px 20px;
     border-radius:30px;
     background:rgba(255,255,255,.15);
     transition:.3s;
@@ -108,13 +133,7 @@ h1{
 .member:hover{
     background:white;
     color:#1e3a8a;
-    transform:translateY(-5px) scale(1.05);
-}
-
-.footer{
-    margin-top:35px;
-    color:#e5e7eb;
-    font-size:15px;
+    transform:translateY(-3px);
 }
 
 @keyframes fadeIn{
@@ -135,11 +154,13 @@ h1{
 
 <div class="container">
 
-<h1>Welcome to JU CSE</h1>
+<h1>Welcome to JU CSE Books Store</h1>
 
 <p class="subtitle">
-Department of Computer Science & Engineering
+Department of Computer Science & Engineering - Lab 03 CRUD API
 </p>
+
+<a href="/api/books" class="api-link">View Books API (/api/books)</a>
 
 <div class="team">
 <div class="member">Naeem</div>
@@ -152,9 +173,14 @@ Department of Computer Science & Engineering
 
 </body>
 </html>
-`);
+  `);
 });
 
-app.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
+// 404 Handler
+app.use((req, res) => {
+  res.status(404).json({ success: false, error: "Endpoint not found" });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });

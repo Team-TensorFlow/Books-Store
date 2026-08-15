@@ -37,3 +37,45 @@ Books-Store/
 ├── Dockerfile                                           # Docker build configuration
 ├── package.json                                         # Node.js dependencies and scripts
 └── README.md                                            # Project documentation
+
+---
+
+## API Documentation
+
+The following API endpoints have been implemented for Lab 03:
+
+### 1. Create a Book
+* **Endpoint:** `POST /api/books`
+* **Sample Payload:**
+  ```json
+  {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "price": 29.99,
+    "genre": "Software Engineering",
+    "published_year": 2008
+  }
+  ```
+* **Success Response:** `201 Created`
+
+### 2. Get All Books
+* **Endpoint:** `GET /api/books`
+* **Success Response:** `200 OK` (Returns an array of books)
+
+### 3. Get Book by ID
+* **Endpoint:** `GET /api/books/:id`
+* **Success Response:** `200 OK` (Returns single book object) or `404 Not Found`
+
+### 4. Update a Book
+* **Endpoint:** `PUT /api/books/:id`
+* **Sample Payload:**
+  ```json
+  {
+    "price": 34.99
+  }
+  ```
+* **Success Response:** `200 OK`
+
+### 5. Delete a Book
+* **Endpoint:** `DELETE /api/books/:id`
+* **Success Response:** `200 OK`
