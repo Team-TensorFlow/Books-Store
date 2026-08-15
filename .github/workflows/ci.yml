@@ -42,6 +42,13 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             set -e
+            
+            # Auto-install docker-compose if neither version exists
+            if ! command -v docker-compose &> /dev/null && ! docker compose version &> /dev/null; then
+              apt-get update -y || true
+              apt-get install -y docker-compose || true
+            fi
+            
             if [ ! -d "Books-Store" ]; then
               git clone https://github.com/Team-TensorFlow/Books-Store.git
             fi
@@ -53,14 +60,13 @@ jobs:
             docker stop ju-cse-container || true
             docker rm ju-cse-container || true
             
-            # Use docker compose OR docker-compose depending on what is installed on the VPS
+            # Run the appropriate compose command without variable splitting
             if command -v docker-compose &> /dev/null; then
-              DOCKER_CMD="docker-compose"
+              docker-compose down || true
+              docker-compose up -d --build
             else
-              DOCKER_CMD="docker compose"
+              docker compose down || true
+              docker compose up -d --build
             fi
-            
-            $DOCKER_CMD down || true
-            $DOCKER_CMD up -d --build
             
             docker image prune -f
