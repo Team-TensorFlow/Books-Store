@@ -48,8 +48,12 @@ jobs:
             cd Books-Store
             git pull origin main
 
-            docker build -t ju-cse-app .
+            # Stop and remove any old single containers if they exist
             docker stop ju-cse-container || true
             docker rm ju-cse-container || true
-            docker run -d -p 80:3000 --restart always --name ju-cse-container ju-cse-app
+            
+            # Start the full stack (App + MySQL) using Docker Compose
+            docker compose down || true
+            docker compose up -d --build
+            
             docker image prune -f
