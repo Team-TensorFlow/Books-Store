@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Continuous Integration (CI)
 
 on:
   push:
@@ -26,47 +26,3 @@ jobs:
       - name: Run Newman API Tests
         run: |
           npx newman run demo.json
-
-
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy to VPS over SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            set -e
-            
-            # Auto-install docker-compose if neither version exists
-            if ! command -v docker-compose &> /dev/null && ! docker compose version &> /dev/null; then
-              apt-get update -y || true
-              apt-get install -y docker-compose || true
-            fi
-            
-            if [ ! -d "Books-Store" ]; then
-              git clone https://github.com/Team-TensorFlow/Books-Store.git
-            fi
-            
-            cd Books-Store
-            git pull origin main
-
-            # Stop and remove any old single containers if they exist
-            docker stop ju-cse-container || true
-            docker rm ju-cse-container || true
-            
-            # Run the appropriate compose command without variable splitting
-            if command -v docker-compose &> /dev/null; then
-              docker-compose down || true
-              docker-compose up -d --build
-            else
-              docker compose down || true
-              docker compose up -d --build
-            fi
-            
-            docker image prune -f
