@@ -52,8 +52,14 @@ jobs:
             docker stop ju-cse-container || true
             docker rm ju-cse-container || true
             
-            # Start the full stack (App + MySQL) using Docker Compose
-            docker compose down || true
-            docker compose up -d --build
+            # Use docker compose OR docker-compose depending on what is installed on the VPS
+            if command -v docker-compose &> /dev/null; then
+              DOCKER_CMD="docker-compose"
+            else
+              DOCKER_CMD="docker compose"
+            fi
+            
+            $DOCKER_CMD down || true
+            $DOCKER_CMD up -d --build
             
             docker image prune -f
