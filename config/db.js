@@ -11,7 +11,7 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-async function initDB(retries = 10, delay = 3000) {
+async function initDB(retries = 30, delay = 5000) {
   for (let i = 0; i < retries; i++) {
     try {
       const connection = await pool.getConnection();

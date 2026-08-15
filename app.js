@@ -9,8 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Initialize database schema
-initDB();
+// Database schema will be initialized before server start
 
 // API Routes
 app.use("/api/books", bookRoutes);
@@ -181,6 +180,11 @@ app.use((req, res) => {
   res.status(404).json({ success: false, error: "Endpoint not found" });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+// Initialize database schema, THEN start server
+initDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
+}).catch(err => {
+  console.error("Failed to initialize database:", err);
 });
