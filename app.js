@@ -1,23 +1,13 @@
 const express = require("express");
-const { initDB } = require("./config/db");
-
-const bookRoutes = require("./routes/bookRoutes");
-const userRoutes = require("./routes/userRoutes");
-const authorRoutes = require("./routes/authorRoutes");
+const bookRoutes = require('./routes/bookRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Body parser middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use('/api/books', bookRoutes);
+app.use('/api/users', userRoutes);
 
-// API Routes
-app.use("/api/books", bookRoutes);
-app.use("/api/users", userRoutes);
-app.use("/api/authors", authorRoutes);
-
-// Landing page route
 app.get("/", (req, res) => {
   res.send(`
 <!DOCTYPE html>
@@ -25,7 +15,7 @@ app.get("/", (req, res) => {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JU CSE</title>
+<title>JU CSE Books Store</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -84,20 +74,44 @@ body::after{
     animation:fadeIn 1s ease;
 }
 
-.logo{
-    font-size:70px;
-    margin-bottom:10px;
-}
-
 h1{
-    font-size:48px;
-    margin-bottom:15px;
+    font-size:44px;
+    margin-bottom:30px;
+    font-weight:700;
 }
 
-.subtitle{
-    font-size:22px;
-    color:#dbeafe;
-    margin-bottom:35px;
+.btn-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.api-btn {
+    background: #2563eb;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.api-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-3px);
+}
+
+.api-btn.user-btn {
+    background: #059669;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+}
+
+.api-btn.user-btn:hover {
+    background: #047857;
 }
 
 .team{
@@ -108,62 +122,44 @@ h1{
 }
 
 .member{
-    padding:12px 24px;
+    padding:10px 24px;
     border-radius:30px;
     background:rgba(255,255,255,.15);
     transition:.3s;
     font-weight:600;
+    color: white;
+    font-size: 15px;
 }
 
 .member:hover{
     background:white;
     color:#1e3a8a;
-    transform:translateY(-5px) scale(1.05);
-}
-
-.footer{
-    margin-top:35px;
-    color:#e5e7eb;
-    font-size:15px;
+    transform:translateY(-3px);
 }
 
 @keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{ opacity:0; transform:translateY(30px); }
+    to{ opacity:1; transform:translateY(0); }
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
+  <h1>Welcome to JU CSE Books Store</h1>
 
-<div class="logo">💻</div>
+  <div class="btn-container">
+    <a href="/api/books" class="api-btn">View Books API (/api/books)</a>
+    <a href="/api/users" class="api-btn user-btn">View Users API (/api/users)</a>
+  </div>
 
-<h1>Welcome to JU CSE</h1>
-
-<p class="subtitle">
-Department of Computer Science & Engineering
-</p>
-
-<div class="team">
-<div class="member">👨‍💻 Naeem</div>
-<div class="member">👨‍💻 Mahadi</div>
-<div class="member">👨‍💻 Limon</div>
-<div class="member">👨‍💻 Fahim</div>
-</div>
-
-<div class="footer">
-Made with ❤️ using Node.js & Express
-</div>
-
+  <div class="team">
+    <div class="member">Naeem</div>
+    <div class="member">Mahadi</div>
+    <div class="member">Limon</div>
+    <div class="member">Fahim</div>
+  </div>
 </div>
 
 </body>
@@ -171,21 +167,6 @@ Made with ❤️ using Node.js & Express
 `);
 });
 
-// 404 Handler
-app.use((req, res) => {
-  res.status(404).json({
-    success: false,
-    error: "Endpoint not found"
-  });
+app.listen(3000, () => {
+    console.log("🚀 Server running at http://localhost:3000");
 });
-
-// Initialize database, then start server
-initDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running at http://localhost:${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error("Failed to initialize database:", err);
-  });
