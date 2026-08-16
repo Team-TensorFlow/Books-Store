@@ -7,11 +7,7 @@ class UserModel {
       INSERT INTO users (name, email, role)
       VALUES (?, ?, ?)
     `;
-    const [result] = await pool.execute(query, [
-      name,
-      email,
-      role
-    ]);
+    const [result] = await pool.execute(query, [name, email, role]);
     return this.findById(result.insertId);
   }
 
@@ -29,23 +25,21 @@ class UserModel {
     return rows.length > 0 ? rows[0] : null;
   }
 
-  // Update a user by ID
-  static async update(id, { name, email, role = 'user' }) {
+  // Dynamic Update: Only updates fields provided in req.body
+  static async update(id, data) {
+    const existing = await this.findById(id);
+    if (!existing) return null;
+
+    const name = data.name !== undefined ? data.name : existing.name;
+    const email = data.email !== undefined ? data.email : existing.email;
+    const role = data.role !== undefined ? data.role : existing.role;
+
     const query = `
       UPDATE users
       SET name = ?, email = ?, role = ?
       WHERE id = ?
     `;
-    const [result] = await pool.execute(query, [
-      name,
-      email,
-      role,
-      id
-    ]);
-
-    if (result.affectedRows === 0) {
-      return null;
-    }
+    await pool.execute(query, [name, email, role, id]);
     return this.findById(id);
   }
 
