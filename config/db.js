@@ -20,7 +20,7 @@ async function initDB(retries = 30, delay = 5000) {
 
       console.log("Connected to MySQL Database successfully!");
 
-      // Books table
+      // 1. Books table
       const createBooksTableQuery = `
         CREATE TABLE IF NOT EXISTS books (
           id INT AUTO_INCREMENT PRIMARY KEY,
@@ -34,12 +34,10 @@ async function initDB(retries = 30, delay = 5000) {
             ON UPDATE CURRENT_TIMESTAMP
         );
       `;
-
       await connection.query(createBooksTableQuery);
-
       console.log("Database schema verified: books table ready.");
 
-      // Authors table
+      // 2. Authors table
       const createAuthorsTableQuery = `
         CREATE TABLE IF NOT EXISTS authors (
           id INT AUTO_INCREMENT PRIMARY KEY,
@@ -52,10 +50,41 @@ async function initDB(retries = 30, delay = 5000) {
             ON UPDATE CURRENT_TIMESTAMP
         );
       `;
-
       await connection.query(createAuthorsTableQuery);
-
       console.log("Database schema verified: authors table ready.");
+
+      // 3. Users table
+      const createUsersTableQuery = `
+        CREATE TABLE IF NOT EXISTS users (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          name VARCHAR(255) NOT NULL,
+          email VARCHAR(255) NOT NULL UNIQUE,
+          role VARCHAR(50) DEFAULT 'user',
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            ON UPDATE CURRENT_TIMESTAMP
+        );
+      `;
+      await connection.query(createUsersTableQuery);
+      console.log("Database schema verified: users table ready.");
+
+      // 4. Orders table
+      const createOrdersTableQuery = `
+        CREATE TABLE IF NOT EXISTS orders (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          user_id INT,
+          book_id INT,
+          quantity INT DEFAULT 1,
+          status VARCHAR(50) DEFAULT 'Pending',
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            ON UPDATE CURRENT_TIMESTAMP,
+          FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
+          FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE SET NULL
+        );
+      `;
+      await connection.query(createOrdersTableQuery);
+      console.log("Database schema verified: orders table ready.");
 
       return;
     } catch (err) {
