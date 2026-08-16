@@ -1,16 +1,17 @@
 const express = require("express");
+const { initDB } = require('./config/db'); // 1. Import initDB
 const bookRoutes = require('./routes/bookRoutes');
 const userRoutes = require('./routes/userRoutes');
-const authorRoutes = require('./routes/authorRoutes'); // Added Author Routes
-const orderRoutes = require('./routes/orderRoutes');   // Added Order Routes
+const authorRoutes = require('./routes/authorRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
 
 app.use(express.json());
 app.use('/api/books', bookRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/authors', authorRoutes); // Mounted Author API
-app.use('/api/orders', orderRoutes);   // Mounted Order API
+app.use('/api/authors', authorRoutes);
+app.use('/api/orders', orderRoutes);
 
 app.get("/", (req, res) => {
   res.send(`
@@ -66,7 +67,7 @@ body::after{
 .container{
     position:relative;
     z-index:2;
-    width:800px; /* Slightly widened to fit 4 buttons comfortably */
+    width:800px;
     padding:50px;
     text-align:center;
     background:rgba(255,255,255,.12);
@@ -109,7 +110,6 @@ h1{
     transform: translateY(-3px);
 }
 
-/* User Button Styles */
 .api-btn.user-btn {
     background: #059669;
     box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
@@ -118,7 +118,6 @@ h1{
     background: #047857;
 }
 
-/* Author Button Styles */
 .api-btn.author-btn {
     background: #9333ea;
     box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
@@ -127,7 +126,6 @@ h1{
     background: #7e22ce;
 }
 
-/* Order Button Styles */
 .api-btn.order-btn {
     background: #ea580c;
     box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
@@ -191,6 +189,13 @@ h1{
 `);
 });
 
-app.listen(3000, () => {
-    console.log("🚀 Server running at http://localhost:3000");
-});
+// 2. Execute initDB before starting the server
+initDB()
+  .then(() => {
+    app.listen(3000, () => {
+      console.log("🚀 Server running at http://localhost:3000");
+    });
+  })
+  .catch((err) => {
+    console.error("❌ Failed to initialize database:", err);
+  });
