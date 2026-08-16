@@ -1,4 +1,4 @@
-const UserModel = require('../models/UserModel'); // ensure case matches your filename in models/
+const UserModel = require('../models/userModel');
 
 exports.createUser = async (req, res) => {
   try {
