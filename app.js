@@ -1,12 +1,23 @@
 const express = require("express");
-const bookRoutes = require('./routes/bookRoutes');
-const userRoutes = require('./routes/userRoutes');
+const { initDB } = require("./config/db");
+
+const bookRoutes = require("./routes/bookRoutes");
+const userRoutes = require("./routes/userRoutes");
+const authorRoutes = require("./routes/authorRoutes");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Body parser middleware
 app.use(express.json());
-app.use('/api/books', bookRoutes);
-app.use('/api/users', userRoutes);
+app.use(express.urlencoded({ extended: true }));
+
+// API Routes
+app.use("/api/books", bookRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/authors", authorRoutes);
+
+// Landing page route
 app.get("/", (req, res) => {
   res.send(`
 <!DOCTYPE html>
@@ -35,7 +46,6 @@ body{
     overflow:hidden;
 }
 
-/* Animated background */
 body::before{
     content:'';
     position:absolute;
@@ -65,17 +75,12 @@ body::after{
     width:700px;
     padding:50px;
     text-align:center;
-
     background:rgba(255,255,255,.12);
     backdrop-filter:blur(18px);
-
     border:1px solid rgba(255,255,255,.2);
     border-radius:25px;
-
     color:white;
-
     box-shadow:0 20px 50px rgba(0,0,0,.4);
-
     animation:fadeIn 1s ease;
 }
 
@@ -166,6 +171,21 @@ Made with ❤️ using Node.js & Express
 `);
 });
 
-app.listen(3000, () => {
-    console.log("🚀 Server running at http://localhost:3000");
+// 404 Handler
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    error: "Endpoint not found"
+  });
 });
+
+// Initialize database, then start server
+initDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running at http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to initialize database:", err);
+  });
