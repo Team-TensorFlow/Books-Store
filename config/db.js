@@ -32,6 +32,22 @@ async function initDB(retries = 30, delay = 5000) {
 
       await connection.query(createTableQuery);
       console.log('Database schema verified: `books` table ready.');
+
+      const createAuthorsTableQuery = `
+        CREATE TABLE IF NOT EXISTS authors (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          name VARCHAR(150) NOT NULL,
+          bio TEXT,
+          nationality VARCHAR(100),
+          birth_year INT,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        );
+      `;
+
+      await connection.query(createAuthorsTableQuery);
+      console.log('Database schema verified: `authors` table ready.');
+
       connection.release();
       return;
     } catch (err) {

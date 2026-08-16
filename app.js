@@ -1,3 +1,6 @@
+
+
+
 const express = require("express");
 const { initDB } = require("./config/db");
 const bookRoutes = require("./routes/bookRoutes");
@@ -9,11 +12,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Database schema will be initialized before server start
-
 // API Routes
 app.use("/api/books", bookRoutes);
 
+const authorRoutes = require("./routes/authorRoutes");
+app.use("/api/authors", authorRoutes);
 // Landing page route
 app.get("/", (req, res) => {
   res.send(`
