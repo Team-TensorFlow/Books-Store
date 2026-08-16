@@ -1,10 +1,9 @@
-const userModel = require('../models/userModel');
+const UserModel = require('../models/UserModel'); // ensure case matches your filename in models/
 
 exports.createUser = async (req, res) => {
   try {
-    const { name, email } = req.body;
-    const newUserId = await userModel.createUser(name, email);
-    res.status(201).json({ id: newUserId, name, email });
+    const user = await UserModel.create(req.body);
+    res.status(201).json(user);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -12,7 +11,7 @@ exports.createUser = async (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
   try {
-    const users = await userModel.getAllUsers();
+    const users = await UserModel.findAll();
     res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -21,7 +20,7 @@ exports.getAllUsers = async (req, res) => {
 
 exports.getUserById = async (req, res) => {
   try {
-    const user = await userModel.getUserById(req.params.id);
+    const user = await UserModel.findById(req.params.id);
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.status(200).json(user);
   } catch (error) {
@@ -31,10 +30,9 @@ exports.getUserById = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   try {
-    const { name, email } = req.body;
-    const affectedRows = await userModel.updateUser(req.params.id, name, email);
-    if (!affectedRows) return res.status(404).json({ message: 'User not found' });
-    res.status(200).json({ message: 'User updated successfully' });
+    const updatedUser = await UserModel.update(req.params.id, req.body);
+    if (!updatedUser) return res.status(404).json({ message: 'User not found' });
+    res.status(200).json(updatedUser);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -42,8 +40,8 @@ exports.updateUser = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
   try {
-    const affectedRows = await userModel.deleteUser(req.params.id);
-    if (!affectedRows) return res.status(404).json({ message: 'User not found' });
+    const success = await UserModel.delete(req.params.id);
+    if (!success) return res.status(404).json({ message: 'User not found' });
     res.status(200).json({ message: 'User deleted successfully' });
   } catch (error) {
     res.status(500).json({ error: error.message });
