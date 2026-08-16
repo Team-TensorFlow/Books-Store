@@ -1,12 +1,16 @@
 const express = require("express");
 const bookRoutes = require('./routes/bookRoutes');
 const userRoutes = require('./routes/userRoutes');
+const authorRoutes = require('./routes/authorRoutes'); // Added Author Routes
+const orderRoutes = require('./routes/orderRoutes');   // Added Order Routes
 
 const app = express();
 
 app.use(express.json());
 app.use('/api/books', bookRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/authors', authorRoutes); // Mounted Author API
+app.use('/api/orders', orderRoutes);   // Mounted Order API
 
 app.get("/", (req, res) => {
   res.send(`
@@ -62,7 +66,7 @@ body::after{
 .container{
     position:relative;
     z-index:2;
-    width:700px;
+    width:800px; /* Slightly widened to fit 4 buttons comfortably */
     padding:50px;
     text-align:center;
     background:rgba(255,255,255,.12);
@@ -105,13 +109,31 @@ h1{
     transform: translateY(-3px);
 }
 
+/* User Button Styles */
 .api-btn.user-btn {
     background: #059669;
     box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
 }
-
 .api-btn.user-btn:hover {
     background: #047857;
+}
+
+/* Author Button Styles */
+.api-btn.author-btn {
+    background: #9333ea;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+}
+.api-btn.author-btn:hover {
+    background: #7e22ce;
+}
+
+/* Order Button Styles */
+.api-btn.order-btn {
+    background: #ea580c;
+    box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
+}
+.api-btn.order-btn:hover {
+    background: #c2410c;
 }
 
 .team{
@@ -152,6 +174,8 @@ h1{
   <div class="btn-container">
     <a href="/api/books" class="api-btn">View Books API (/api/books)</a>
     <a href="/api/users" class="api-btn user-btn">View Users API (/api/users)</a>
+    <a href="/api/authors" class="api-btn author-btn">View Authors API (/api/authors)</a>
+    <a href="/api/orders" class="api-btn order-btn">View Orders API (/api/orders)</a>
   </div>
 
   <div class="team">
