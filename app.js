@@ -1,20 +1,12 @@
 const express = require("express");
-const { initDB } = require("./config/db");
-const bookRoutes = require("./routes/bookRoutes");
+const bookRoutes = require('./routes/bookRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Body parser middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Database schema will be initialized before server start
-
-// API Routes
-app.use("/api/books", bookRoutes);
-
-// Landing page route
+app.use('/api/books', bookRoutes);
+app.use('/api/users', userRoutes);
 app.get("/", (req, res) => {
   res.send(`
 <!DOCTYPE html>
@@ -22,7 +14,7 @@ app.get("/", (req, res) => {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JU CSE - Books Store API</title>
+<title>JU CSE</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -43,6 +35,7 @@ body{
     overflow:hidden;
 }
 
+/* Animated background */
 body::before{
     content:'';
     position:absolute;
@@ -86,32 +79,20 @@ body::after{
     animation:fadeIn 1s ease;
 }
 
-h1{
-    font-size:42px;
+.logo{
+    font-size:70px;
     margin-bottom:10px;
 }
 
+h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
 .subtitle{
-    font-size:20px;
+    font-size:22px;
     color:#dbeafe;
-    margin-bottom:25px;
-}
-
-.api-link {
-    display:inline-block;
-    padding:12px 25px;
-    background:#3b82f6;
-    color:white;
-    text-decoration:none;
-    border-radius:20px;
-    font-weight:600;
-    margin-bottom:30px;
-    transition: 0.3s;
-}
-
-.api-link:hover {
-    background:#2563eb;
-    transform:translateY(-3px);
+    margin-bottom:35px;
 }
 
 .team{
@@ -122,7 +103,7 @@ h1{
 }
 
 .member{
-    padding:10px 20px;
+    padding:12px 24px;
     border-radius:30px;
     background:rgba(255,255,255,.15);
     transition:.3s;
@@ -132,7 +113,13 @@ h1{
 .member:hover{
     background:white;
     color:#1e3a8a;
-    transform:translateY(-3px);
+    transform:translateY(-5px) scale(1.05);
+}
+
+.footer{
+    margin-top:35px;
+    color:#e5e7eb;
+    font-size:15px;
 }
 
 @keyframes fadeIn{
@@ -153,35 +140,32 @@ h1{
 
 <div class="container">
 
-<h1>Welcome to JU CSE Books Store</h1>
+<div class="logo">💻</div>
 
+<h1>Welcome to JU CSE</h1>
 
-<a href="/api/books" class="api-link">View Books API (/api/books)</a>
+<p class="subtitle">
+Department of Computer Science & Engineering
+</p>
 
 <div class="team">
-<div class="member">Naeem</div>
-<div class="member">Mahadi</div>
-<div class="member">Limon</div>
-<div class="member">Fahim</div>
+<div class="member">👨‍💻 Naeem</div>
+<div class="member">👨‍💻 Mahadi</div>
+<div class="member">👨‍💻 Limon</div>
+<div class="member">👨‍💻 Fahim</div>
+</div>
+
+<div class="footer">
+Made with ❤️ using Node.js & Express
 </div>
 
 </div>
 
 </body>
 </html>
-  `);
+`);
 });
 
-// 404 Handler
-app.use((req, res) => {
-  res.status(404).json({ success: false, error: "Endpoint not found" });
-});
-
-// Initialize database schema, THEN start server
-initDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-  });
-}).catch(err => {
-  console.error("Failed to initialize database:", err);
+app.listen(3000, () => {
+    console.log("🚀 Server running at http://localhost:3000");
 });
