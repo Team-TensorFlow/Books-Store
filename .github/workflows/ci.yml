@@ -25,4 +25,4 @@ jobs:
 
       - name: Run Newman API Tests
         run: |
-          npx newman run demo.json
+          npx newman run postman/Books_Store_CRUD.postman_collection.json
