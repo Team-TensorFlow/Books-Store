@@ -13,4 +13,16 @@ body:
       "genre": "Software Engineering",
       "published_year": 2008
     }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 201", function () {
+          pm.response.to.have.status(201);
+      });
+      pm.test("Successful creation", function () {
+          var jsonData = pm.response.json();
+          pm.expect(jsonData.success).to.eql(true);
+          pm.collectionVariables.set("bookId", jsonData.data.id);
+      });
+    language: text/javascript
 order: 1000

@@ -1,5 +1,5 @@
 $kind: http-request
-url: http://103.191.241.109/api/books/1
+url: http://103.191.241.109/api/books/{{bookId}}
 method: PUT
 headers:
   Content-Type: application/json
@@ -13,4 +13,15 @@ body:
       "genre": "Software Development",
       "published_year": 2009
     }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+      pm.test("Successful update", function () {
+          var jsonData = pm.response.json();
+          pm.expect(jsonData.success).to.eql(true);
+      });
+    language: text/javascript
 order: 4000

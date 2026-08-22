@@ -1,4 +1,4 @@
 name: Books-Store Server
 values:
   - key: base_url
-    value: 'http://localhost:3000'
+    value: 'http://103.191.241.109'

@@ -1,2 +1,5 @@
 $kind: collection
+name: Books Store CRUD API
 description: Postman Collection for LAB 03 - Basic CRUD Operations with Express and MySQL
+variables:
+  bookId: "1"
