@@ -1,5 +1,5 @@
 $kind: http-request
-url: http://localhost:3000/api/books
+url: http://103.191.241.109/api/books
 method: POST
 headers:
   Content-Type: application/json
