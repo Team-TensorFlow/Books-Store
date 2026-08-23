@@ -1,10 +1,25 @@
 $kind: http-request
-body:
-  content: "{\n  \"label\": \"Home\",\n  \"street\": \"Road 5\",\n  \"city\": \"Dhaka\"\
-    \n}"
-  type: json
+url: "{{base_url}}/posts/1"
+method: PUT
 headers:
   Content-Type: application/json
-method: PUT
-order: 36000
-url: '{{base_url}}/posts/1'
+body:
+  type: json
+  content: |-
+    {
+      "label": "Home",
+      "street": "Road 5",
+      "city": "Dhaka"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Response time is less than 1000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(1000);
+      });
+    language: text/javascript
+order: 2000

@@ -3,4 +3,14 @@ url: "{{base_url}}/api/books/search/author?author=humayun"
 method: GET
 queryParams:
   author: humayun
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+      pm.test("Response time is less than 1000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(1000);
+      });
+    language: text/javascript
 order: 2000

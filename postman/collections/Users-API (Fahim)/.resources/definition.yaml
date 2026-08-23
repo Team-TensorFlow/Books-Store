@@ -1,5 +1,4 @@
 $kind: collection
-description: 50 endpoints - Users-API (Fahim) module for Books-Store project testing
-  JSONPlaceholder Fake API
+description: 50 endpoints organized by HTTP Method (GET, POST, PUT, PATCH, DELETE) for Users-API (Fahim) module testing JSONPlaceholder Fake API
 variables:
   base_url: https://jsonplaceholder.typicode.com
