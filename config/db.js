@@ -12,17 +12,14 @@ const pool = mysql.createPool({
 });
 
 async function initDB(retries = 30, delay = 5000) {
-  for (let i = 1; i <= retries; i++) 
+  for (let i = 1; i <= retries; i++)
   {
     let connection;
-
-    try 
+    try
     {
       connection = await pool.getConnection();
-
       console.log("Connected to MySQL Database successfully!");
 
-      // 1. Books table
       const createBooksTableQuery = `
         CREATE TABLE IF NOT EXISTS books (
           id INT AUTO_INCREMENT PRIMARY KEY,
@@ -39,7 +36,6 @@ async function initDB(retries = 30, delay = 5000) {
       await connection.query(createBooksTableQuery);
       console.log("Database schema verified: books table ready.");
 
-      // 2. Authors table
       const createAuthorsTableQuery = `
         CREATE TABLE IF NOT EXISTS authors (
           id INT AUTO_INCREMENT PRIMARY KEY,
@@ -55,12 +51,12 @@ async function initDB(retries = 30, delay = 5000) {
       await connection.query(createAuthorsTableQuery);
       console.log("Database schema verified: authors table ready.");
 
-      // 3. Users table
       const createUsersTableQuery = `
         CREATE TABLE IF NOT EXISTS users (
           id INT AUTO_INCREMENT PRIMARY KEY,
           name VARCHAR(255) NOT NULL,
           email VARCHAR(255) NOT NULL UNIQUE,
+          password VARCHAR(255) NOT NULL,
           role VARCHAR(50) DEFAULT 'user',
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
           updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -70,7 +66,6 @@ async function initDB(retries = 30, delay = 5000) {
       await connection.query(createUsersTableQuery);
       console.log("Database schema verified: users table ready.");
 
-      // 4. Orders table
       const createOrdersTableQuery = `
         CREATE TABLE IF NOT EXISTS orders (
           id INT AUTO_INCREMENT PRIMARY KEY,
@@ -89,28 +84,26 @@ async function initDB(retries = 30, delay = 5000) {
       console.log("Database schema verified: orders table ready.");
 
       return;
-    } 
-    catch (err) 
+    }
+    catch (err)
     {
       console.log(
         `Database connection attempt ${i}/${retries} failed: ${err.message}. ` +
         `Retrying in ${delay / 1000}s...`
       );
-
-      if (i < retries) 
+      if (i < retries)
       {
         await new Promise((resolve) => setTimeout(resolve, delay));
       }
-    } 
-    finally 
+    }
+    finally
     {
-      if (connection) 
+      if (connection)
       {
         connection.release();
       }
     }
   }
-
   throw new Error("Could not connect to MySQL after maximum retries.");
 }
 
