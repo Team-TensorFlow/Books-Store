@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{base_url}}/todos"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "code": "123456"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Verify Two-Factor Code - Status code is 201', function () { pm.response.to.have.status(201); });
+      pm.test('Response is JSON', function () { pm.response.to.be.json; });
+      pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });
+    language: text/javascript
+order: 7000

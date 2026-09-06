@@ -1,0 +1,13 @@
+$kind: http-request
+url: https://jsonplaceholder.typicode.com/posts/
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Humayun Ahmed",
+      "bio": "Famous Bangladeshi novelist"
+    }
+order: 3000

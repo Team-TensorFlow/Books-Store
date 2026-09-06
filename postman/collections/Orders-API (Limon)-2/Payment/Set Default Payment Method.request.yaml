@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/methods/1/default"
+method: PATCH
+order: 10000

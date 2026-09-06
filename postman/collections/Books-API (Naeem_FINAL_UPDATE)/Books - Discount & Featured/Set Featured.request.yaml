@@ -1,0 +1,12 @@
+$kind: http-request
+url: https://jsonplaceholder.typicode.com/posts/5
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "is_featured": true
+    }
+order: 5000

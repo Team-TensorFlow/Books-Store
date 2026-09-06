@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/gateway-config"
+method: GET
+order: 25000

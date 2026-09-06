@@ -1,0 +1,4 @@
+$kind: http-request
+url: https://jsonplaceholder.typicode.com/posts/5
+method: DELETE
+order: 3000

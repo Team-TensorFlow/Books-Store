@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{base_url}}/users?email=Sincere@april.biz"
+method: GET
+queryParams:
+  email: Sincere@april.biz
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Search Users by Email - Status code is 200', function () { pm.response.to.have.status(200); });
+      pm.test('Response is JSON', function () { pm.response.to.be.json; });
+      pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });
+    language: text/javascript
+order: 9000

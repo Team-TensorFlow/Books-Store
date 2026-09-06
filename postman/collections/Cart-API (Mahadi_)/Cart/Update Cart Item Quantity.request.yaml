@@ -1,0 +1,12 @@
+$kind: http-request
+url: https://jsonplaceholder.typicode.com/posts/6
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "quantity": 3
+    }
+order: 3000

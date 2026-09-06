@@ -1,0 +1,12 @@
+$kind: http-request
+url: https://jsonplaceholder.typicode.com/posts/1
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "status": "active"
+    }
+order: 8000

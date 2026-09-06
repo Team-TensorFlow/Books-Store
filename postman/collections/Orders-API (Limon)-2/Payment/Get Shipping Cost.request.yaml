@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/shipping-cost?city=Dhaka"
+method: GET
+queryParams:
+  city: Dhaka
+order: 24000

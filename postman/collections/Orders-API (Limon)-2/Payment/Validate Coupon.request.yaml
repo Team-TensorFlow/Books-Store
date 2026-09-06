@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/coupon/validate?code=SAVE10"
+method: GET
+queryParams:
+  code: SAVE10
+order: 19000

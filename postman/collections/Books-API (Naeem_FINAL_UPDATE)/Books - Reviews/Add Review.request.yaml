@@ -1,0 +1,14 @@
+$kind: http-request
+url: https://jsonplaceholder.typicode.com/posts/
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "reviewer_name": "Naeem",
+      "rating": 5,
+      "comment": "Great book!"
+    }
+order: 1000

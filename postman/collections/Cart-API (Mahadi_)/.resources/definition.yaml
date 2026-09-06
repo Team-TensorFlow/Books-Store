@@ -1,0 +1,12 @@
+$kind: collection
+name: Cart-API (Mahadi_)
+description: 50 endpoints - Cart-API (Mahadi) module for Books-Store project
+variables:
+  base_url: http://103.191.241.109
+scripts:
+  - type: http:afterResponse
+    code: |-
+      pm.test("Status code is 200/201/204", function () {
+          pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);
+      });
+    language: text/javascript

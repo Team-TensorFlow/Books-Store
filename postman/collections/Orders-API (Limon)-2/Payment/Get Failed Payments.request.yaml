@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/status/failed"
+method: GET
+order: 13000

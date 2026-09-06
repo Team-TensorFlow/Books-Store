@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/1/refund"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "order_id": 1,
+      "reason": "Order cancelled"
+    }
+order: 5000

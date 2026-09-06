@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/methods"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "type": "card",
+      "cardNumber": "4111111111111111",
+      "expiry": "12/28"
+    }
+order: 7000

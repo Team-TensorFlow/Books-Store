@@ -1,12 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
+const { protect, authorize } = require('../middleware/auth');
 
-// Routes mapped to controllers
-router.post('/', userController.createUser);       // Create
-router.get('/', userController.getAllUsers);       // Read All
-router.get('/:id', userController.getUserById);    // Read by ID
-router.put('/:id', userController.updateUser);     // Update
-router.delete('/:id', userController.deleteUser);  // Delete
+// Public Auth Endpoints
+router.post('/register', userController.register);
+router.post('/login', userController.login);
+
+// Protected CRUD Endpoints (Requires Login)
+router.get('/', protect, userController.getAllUsers);
+router.get('/:id', protect, userController.getUserById);
+router.put('/:id', protect, userController.updateUser);
+
+// Restricted Endpoint (Requires Admin Role)
+router.delete('/:id', protect, authorize('admin'), userController.deleteUser);
 
 module.exports = router;

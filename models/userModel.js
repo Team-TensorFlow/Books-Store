@@ -2,13 +2,20 @@ const { pool } = require('../config/db');
 
 class UserModel {
   // Create a new user record
-  static async create({ name, email, role = 'user' }) {
+  static async create({ name, email, password, role = 'user' }) {
     const query = `
-      INSERT INTO users (name, email, role)
-      VALUES (?, ?, ?)
+      INSERT INTO users (name, email, password, role)
+      VALUES (?, ?, ?, ?)
     `;
-    const [result] = await pool.execute(query, [name, email, role]);
+    const [result] = await pool.execute(query, [name, email, password, role]);
     return this.findById(result.insertId);
+  }
+
+  // Retrieve a single user by Email (Required for Login & Registration validation)
+  static async findByEmail(email) {
+    const query = 'SELECT * FROM users WHERE email = ?';
+    const [rows] = await pool.execute(query, [email]);
+    return rows.length > 0 ? rows[0] : null;
   }
 
   // Retrieve all users
@@ -32,14 +39,15 @@ class UserModel {
 
     const name = data.name !== undefined ? data.name : existing.name;
     const email = data.email !== undefined ? data.email : existing.email;
+    const password = data.password !== undefined ? data.password : existing.password;
     const role = data.role !== undefined ? data.role : existing.role;
 
     const query = `
       UPDATE users
-      SET name = ?, email = ?, role = ?
+      SET name = ?, email = ?, password = ?, role = ?
       WHERE id = ?
     `;
-    await pool.execute(query, [name, email, role, id]);
+    await pool.execute(query, [name, email, password, role, id]);
     return this.findById(id);
   }
 

@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{base_url}}/api/payments/coupon"
+method: DELETE
+order: 20000

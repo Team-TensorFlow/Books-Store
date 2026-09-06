@@ -1,0 +1,12 @@
+$kind: http-request
+url: https://jsonplaceholder.typicode.com/posts/
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Birthday Wishlist"
+    }
+order: 12000

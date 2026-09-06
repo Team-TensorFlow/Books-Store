@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/orders/1/note"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "note": "Please deliver after 5pm"
+    }
+order: 25000

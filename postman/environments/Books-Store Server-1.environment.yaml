@@ -1,4 +1,6 @@
 name: Books-Store Server
+color: null
 values:
   - key: base_url
-    value: 'http://103.191.241.109'
+    value: http://103.191.241.109
+    enabled: true

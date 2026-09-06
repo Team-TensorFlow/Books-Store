@@ -1,0 +1,13 @@
+$kind: collection
+name: Users-API (Fahim)
+description: 50 endpoints - Users-API (Fahim) module for Books-Store project testing JSONPlaceholder Fake API
+variables:
+  base_url: https://jsonplaceholder.typicode.com
+scripts:
+  - type: http:afterResponse
+    code: "pm.test(\"Status code is 200/201/204\", function () {\r
+
+      \    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);\r
+
+      });"
+    language: text/javascript
