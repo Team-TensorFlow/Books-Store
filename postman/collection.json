@@ -22,9 +22,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get My Profile - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -44,9 +48,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get User by ID - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -66,9 +74,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get All Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -88,9 +100,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Search Users by Name - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -110,9 +126,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Search Users by Email - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -132,9 +152,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get User Count - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -154,9 +178,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Users by Role - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -176,9 +204,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Active Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -198,9 +230,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Inactive Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -220,9 +256,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Banned Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -242,9 +282,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Admin Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -264,9 +308,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get My Addresses - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -286,9 +334,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Address by ID - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -308,9 +360,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Default Address - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -330,9 +386,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Filter Addresses by City - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -352,9 +412,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Address Count - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -374,9 +438,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Active Sessions - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -396,9 +464,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get Login History - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -418,9 +490,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Paginate Users - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -440,9 +516,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Sort Users by Join Date - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -462,9 +542,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Get New Users This Month - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -503,9 +587,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Register - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -539,9 +627,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Login - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -575,9 +667,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Logout - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -611,9 +707,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Refresh Token - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -647,9 +747,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Verify Email - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -683,9 +787,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Resend Verification Email - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -719,9 +827,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Forgot Password - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -755,9 +867,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Reset Password - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -791,9 +907,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Verify OTP - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -827,9 +947,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Upload Profile Picture - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -863,9 +987,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Add Address - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -899,9 +1027,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Validate Address - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -935,9 +1067,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Verify Two-Factor Code - Status code is 201', function () { pm.response.to.have.status(201); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -976,9 +1112,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Update My Profile - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1012,9 +1152,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Update Address - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1053,9 +1197,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Change Password - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1089,9 +1237,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Update User Role - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1125,9 +1277,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Activate User - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1161,9 +1317,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Deactivate User - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1197,9 +1357,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Ban User - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1233,9 +1397,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Unban User - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1269,9 +1437,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Set Default Address - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1305,9 +1477,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Enable Two-Factor Auth - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1341,9 +1517,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Disable Two-Factor Auth - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1368,9 +1548,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Delete My Account - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1390,9 +1574,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Remove Profile Picture - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1412,9 +1600,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Delete Address - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1434,9 +1626,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Logout from Device - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }
@@ -1456,9 +1652,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Logout All Devices - Status code is 200', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Response is JSON', function () { pm.response.to.be.json; });",
-                  "pm.test('Response is object', function () { pm.expect(pm.response.json()).to.be.an('object'); });"
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
                 ]
               }
             }

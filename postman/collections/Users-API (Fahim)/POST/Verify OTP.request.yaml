@@ -1,9 +1,24 @@
 $kind: http-request
-body:
-  content: "{\n  \"email\": \"fahim@example.com\",\n  \"otp\": \"123456\"\n}"
-  type: json
+url: "{{base_url}}/users"
+method: POST
 headers:
   Content-Type: application/json
-method: POST
-order: 30000
-url: '{{base_url}}/users'
+body:
+  type: json
+  content: |-
+    {
+      "email": "fahim@example.com",
+      "otp": "123456"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 201", function () {
+          pm.response.to.have.status(201);
+      });
+
+      pm.test("Response time is less than 1000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(1000);
+      });
+    language: text/javascript
+order: 9000

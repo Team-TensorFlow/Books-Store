@@ -12,10 +12,12 @@ const pool = mysql.createPool({
 });
 
 async function initDB(retries = 30, delay = 5000) {
-  for (let i = 1; i <= retries; i++) {
+  for (let i = 1; i <= retries; i++) 
+  {
     let connection;
 
-    try {
+    try 
+    {
       connection = await pool.getConnection();
 
       console.log("Connected to MySQL Database successfully!");
@@ -87,17 +89,23 @@ async function initDB(retries = 30, delay = 5000) {
       console.log("Database schema verified: orders table ready.");
 
       return;
-    } catch (err) {
+    } 
+    catch (err) 
+    {
       console.log(
         `Database connection attempt ${i}/${retries} failed: ${err.message}. ` +
         `Retrying in ${delay / 1000}s...`
       );
 
-      if (i < retries) {
+      if (i < retries) 
+      {
         await new Promise((resolve) => setTimeout(resolve, delay));
       }
-    } finally {
-      if (connection) {
+    } 
+    finally 
+    {
+      if (connection) 
+      {
         connection.release();
       }
     }

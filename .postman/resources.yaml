@@ -6,9 +6,9 @@ workspace:
 cloudResources:
   collections:
     ../postman/collections/Books-API (Naeem): 57073124-b69ebdba-2c88-4089-93e2-0b4e6dcebadf
-    ../postman/collections/Users-API (Fahim): 57151692-621db0be-c89c-4c53-ae80-23cd12d7fe3d
     ../postman/collections/Cart-API (Mahadi): 57073124-6b5718b9-7572-44bd-b8f4-2130b4a4bc46
     ../postman/collections/Orders-API (Limon): 57073124-453f82e7-87dd-40c4-b6cd-2086ffc1c1cd
     ../postman/collections/Books Store CRUD API: d3c0199d-75d9-42b1-b1ea-294a5279421b
+    ../postman/collections/Users-API (Fahim): cc744aee-b06e-497f-a997-b5765a31a8d8
   environments:
     ../postman/environments/Books-Store Server.environment.yaml: 57073124-2c090ecc-0595-41d6-a143-534fe30358fa

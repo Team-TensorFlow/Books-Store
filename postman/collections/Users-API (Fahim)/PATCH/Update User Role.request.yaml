@@ -1,9 +1,23 @@
 $kind: http-request
-body:
-  content: "{\n  \"role\": \"admin\"\n}"
-  type: json
+url: "{{base_url}}/users/1"
+method: PATCH
 headers:
   Content-Type: application/json
-method: PATCH
-order: 38000
-url: '{{base_url}}/users/1'
+body:
+  type: json
+  content: |-
+    {
+      "role": "admin"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Response time is less than 1000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(1000);
+      });
+    language: text/javascript
+order: 2000

@@ -3,18 +3,21 @@ const BookModel = require('../models/bookModel');
 // @desc    Add new book (Create)
 // @route   POST /api/books
 exports.createBook = async (req, res) => {
-  try {
+  try 
+  {
     const { title, author, price, genre, published_year } = req.body;
 
     // Validation for required fields
-    if (!title || !author || price === undefined || price === null) {
+    if (!title || !author || price === undefined || price === null) 
+    {
       return res.status(400).json({
         success: false,
         error: 'Missing required fields: title, author, and price are required.'
       });
     }
 
-    if (isNaN(Number(price)) || Number(price) < 0) {
+    if (isNaN(Number(price)) || Number(price) < 0) 
+    {
       return res.status(400).json({
         success: false,
         error: 'Price must be a valid positive number.'
@@ -34,7 +37,9 @@ exports.createBook = async (req, res) => {
       message: 'Book created successfully',
       data: newBook
     });
-  } catch (error) {
+  } 
+  catch (error) 
+  {
     console.error('Error creating book:', error);
     return res.status(500).json({
       success: false,
@@ -46,14 +51,17 @@ exports.createBook = async (req, res) => {
 // @desc    Get all books (Read All)
 // @route   GET /api/books
 exports.getAllBooks = async (req, res) => {
-  try {
+  try 
+  {
     const books = await BookModel.findAll();
     return res.status(200).json({
       success: true,
       count: books.length,
       data: books
     });
-  } catch (error) {
+  } 
+  catch (error) 
+  {
     console.error('Error fetching books:', error);
     return res.status(500).json({
       success: false,
@@ -65,7 +73,8 @@ exports.getAllBooks = async (req, res) => {
 // @desc    Get single book by ID (Read by ID)
 // @route   GET /api/books/:id
 exports.getBookById = async (req, res) => {
-  try {
+  try 
+  {
     const { id } = req.params;
     if (isNaN(Number(id))) {
       return res.status(400).json({
@@ -86,7 +95,9 @@ exports.getBookById = async (req, res) => {
       success: true,
       data: book
     });
-  } catch (error) {
+  } 
+  catch (error) 
+  {
     console.error('Error fetching book by ID:', error);
     return res.status(500).json({
       success: false,
@@ -98,7 +109,8 @@ exports.getBookById = async (req, res) => {
 // @desc    Update book by ID (Update)
 // @route   PUT /api/books/:id
 exports.updateBook = async (req, res) => {
-  try {
+  try 
+  {
     const { id } = req.params;
     const { title, author, price, genre, published_year } = req.body;
 
@@ -145,7 +157,9 @@ exports.updateBook = async (req, res) => {
       message: 'Book updated successfully',
       data: updatedBook
     });
-  } catch (error) {
+  } 
+  catch (error) 
+  {
     console.error('Error updating book:', error);
     return res.status(500).json({
       success: false,
@@ -157,7 +171,8 @@ exports.updateBook = async (req, res) => {
 // @desc    Delete book by ID (Delete)
 // @route   DELETE /api/books/:id
 exports.deleteBook = async (req, res) => {
-  try {
+  try 
+  {
     const { id } = req.params;
     if (isNaN(Number(id))) {
       return res.status(400).json({
@@ -178,7 +193,9 @@ exports.deleteBook = async (req, res) => {
       success: true,
       message: `Book with ID ${id} successfully deleted`
     });
-  } catch (error) {
+  } 
+  catch (error) 
+  {
     console.error('Error deleting book:', error);
     return res.status(500).json({
       success: false,
