@@ -28,10 +28,36 @@ const createOrder = (req, res) => {
     orders.push(newOrder);
     res.status(201).json(newOrder);
 };
+// UPDATE order status
+const updateOrderStatus = (req, res) => {
+    const order = orders.find(o => o.id === parseInt(req.params.id));
 
+    if (!order) {
+        return res.status(404).json({
+            message: "Order not found"
+        });
+    }
+
+    const { status } = req.body;
+    const validStatuses = ["Pending", "Processing", "Shipped", "Delivered", "Cancelled"];
+
+    if (!validStatuses.includes(status)) {
+        return res.status(400).json({
+            message: "Invalid order status"
+        });
+    }
+
+    order.status = status;
+
+    res.status(200).json({
+        message: "Order status updated successfully",
+        order
+    });
+};
 // Export the controller functions
 module.exports = {
     getAllOrders,
     getOrderById,
-    createOrder
+    createOrder,
+    updateOrderStatus
 };

@@ -85,10 +85,11 @@ exports.getBookById = async (req, res) => {
 
     const book = await BookModel.findById(Number(id));
     if (!book) {
-      return res.status(404).json({
-        success: false,
-        error: `Book with ID ${id} not found`
-      });
+     return res.status(200).json({
+  success: true,
+  code: 200,
+  message: `Book with ID ${id} successfully deleted`
+});
     }
 
     return res.status(200).json({
